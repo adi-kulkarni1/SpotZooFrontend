@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "713719225130",
+    "project_id": "spotzoo",
+    "storage_bucket": "spotzoo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713719225130:android:5252e6d6bbf0aaad6f9c53",
+        "android_client_info": {
+          "package_name": "com.example.spotzoo_app1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713719225130-7d0sg4aq47dvfdl4ndntcf92mi2gsgq6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiqBt3H6cNJgpZ5iSJWuIYknHIadclSO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713719225130-7d0sg4aq47dvfdl4ndntcf92mi2gsgq6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
