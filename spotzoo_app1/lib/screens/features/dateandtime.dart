@@ -103,8 +103,8 @@ class _DateTimeFormState extends State<DateTimeForm> {
                 getdocid();
                 FirebaseFirestore.instance
                     .collection("Formdata")
-                    // .doc("Response_" + widget.docid.toString())
-                     .doc("Test")
+                    .doc("Response_" + widget.docid.toString())
+                    //  .doc("Test")
                     .set({'date': val, 'timestamp': Timestamp.now()}, SetOptions(merge: true));
               });
             },

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:spotzoo_app1/screens/main/templates.dart';
@@ -10,6 +11,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:spotzoo_app1/utility/global.dart';
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 
 class FormScreen extends StatefulWidget {
   FormScreen({Key key}) : super(key: key);
@@ -20,9 +22,7 @@ class FormScreen extends StatefulWidget {
 
 class _FormScreenState extends State<FormScreen> {
   int documentId = 0;
-  int _numberOfContributions=0;
-
-  var req = http.MultipartRequest('POST', Uri.parse(url));
+  int _numberOfContributions = 0;
 
   void getdata() {
     FirebaseFirestore.instance
@@ -34,7 +34,9 @@ class _FormScreenState extends State<FormScreen> {
     });
     FirebaseFirestore.instance
         .collection("Users")
-        .doc(Global.uid==null ? "Guest Account": FirebaseAuth.instance.currentUser.uid)
+        .doc(Global.uid == null
+            ? "Guest Account"
+            : FirebaseAuth.instance.currentUser.uid)
         .get()
         .then((value) {
       setState(() {
@@ -67,70 +69,21 @@ class _FormScreenState extends State<FormScreen> {
     });
   }
 
-    void executeNodeSend() async {
-    var numofanimals1;
-    var date1;
-    FirebaseFirestore.instance
-        .collection("Formdata")
-        .doc("Test")
-        .get()
-        .then((value) {
-      date1 = value.get("date");
-    });
-    FirebaseFirestore.instance
-        .collection("Formdata")
-        .doc("Test")
-        .get()
-        .then((value) {
-      numofanimals1 = value.get("numofanimals");
-    });
-    Map<String, dynamic> newUserData = {
-      "comments": _commentController.text,
-      "date": date1,
-      "lat": _currentPosition.latitude,
-      "lng": _currentPosition.longitude,
-      "numofanimals": numofanimals1
-      //"access": "Basic",
-    };
-    var signupdetails;
-      final response = await http.post(
-        Uri.https('794d-163-120-35-224.ngrok.io', '/image'),
-        body: newUserData,
-        ).then((value) { 
-          signupdetails = value;
-          if (signupdetails.statusCode !=200) {
-            print("ERROR SENDING DATA"); print("ERROR SENDING DATA");
-            print(signupdetails.statusCode);
-            // showDialog(
-            // context: context,
-            // builder: (context) {
-            //   return SingleActionPopup(
-            //       "Invalid Credentials", "Error", Colors.black);
-            // });
-          } else { print("SUCCESS");
-           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomeScreen()));
-          }
-        });
-    print(signupdetails.body);
-
-  }
-
   _getCurrentLocation() async {
     Geolocator.getCurrentPosition().then((Position position) {
       setState(() {
         _currentPosition = position;
         loc = LatLng(_currentPosition.latitude, _currentPosition.longitude);
-        // FirebaseFirestore.instance
-        //     .collection("Formdata")
-        //     .doc("Response_" + documentId.toString())
-        //     .set({'latitude_of_location': position.latitude},
-        //         SetOptions(merge: true));
-        // FirebaseFirestore.instance
-        //     .collection("Formdata")
-        //     .doc("Response_" + documentId.toString())
-        //     .set({'longitude_of_location': position.longitude},
-        //         SetOptions(merge: true));
+        FirebaseFirestore.instance
+            .collection("Formdata")
+            .doc("Response_" + documentId.toString())
+            .set({'latitude_of_location': position.latitude},
+                SetOptions(merge: true));
+        FirebaseFirestore.instance
+            .collection("Formdata")
+            .doc("Response_" + documentId.toString())
+            .set({'longitude_of_location': position.longitude},
+                SetOptions(merge: true));
       });
     });
   }
@@ -173,12 +126,11 @@ class _FormScreenState extends State<FormScreen> {
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
         onPressed: () {
-          // FirebaseFirestore.instance
-          //     .collection("Formdata")
-          //     .doc("Response_" + documentId.toString())
-          //     .set({'comments': _commentController.text},
-          //         SetOptions(merge: true));
-          executeNodeSend();
+          FirebaseFirestore.instance
+              .collection("Formdata")
+              .doc("Response_" + documentId.toString())
+              .set({'comments': _commentController.text},
+                  SetOptions(merge: true));
           FirebaseFirestore.instance
               .collection("Doc_ID_Data")
               .doc("Doc_ID_ID")
@@ -187,7 +139,7 @@ class _FormScreenState extends State<FormScreen> {
           //final String uid = user.uid;
           FirebaseFirestore.instance
               .collection("Users")
-              .doc(Global.uid==null ? "Guest Account": Global.uid)
+              .doc(Global.uid == null ? "Guest Account" : Global.uid)
               .set(
                   {'num': _numberOfContributions + 1}, SetOptions(merge: true));
           Navigator.push(
@@ -204,8 +156,8 @@ class _FormScreenState extends State<FormScreen> {
     final bottom = MediaQuery.of(context).viewInsets.bottom;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      //resizeToAvoidBottomPadding: false, Removed for web
+      resizeToAvoidBottomInset: true,
+      // resizeToAvoidBottomInset: false, //Removed for web
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -215,7 +167,7 @@ class _FormScreenState extends State<FormScreen> {
           //    fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
-      backgroundColor: Colors.lightGreen,
+      backgroundColor: const Color(0xFFa1e2e7),
       body: SingleChildScrollView(
         reverse: true,
         child: Padding(
@@ -228,6 +180,11 @@ class _FormScreenState extends State<FormScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
+                        SizedBox(
+                          height: 100.0,
+                          width: 100.0,
+                          child: Image.asset('assets/images/main_hip.png')
+                        ),
                         Padding(
                           padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
                           child: Text(
@@ -314,21 +271,7 @@ class _FormScreenState extends State<FormScreen> {
                             ),
                           ),
                         ),
-                        Card(
-                    child: ListTile(
-                  leading: Icon(Icons.leaderboard, color: Colors.blue),
-                  title: Text('Coming Soon...',
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20)),
-                  subtitle: Text(
-                    'Development in progress',
-                    style:
-                        TextStyle(fontSize: 16),
-                  ),
-                  onTap: () => {},
-                )),
+                        MyImagePicker(title: 'Upload image'),
                         // Align(
                         //   alignment: Alignment.center,
                         //   child: Padding(
@@ -433,23 +376,126 @@ class _DropdownWidgetState extends State<DropdownWidget> {
           dropdownValue = newValue;
           FirebaseFirestore.instance
               .collection("Formdata")
-              // .doc("Response_" + documentid.toString())
-              .doc("Test")
+              .doc("Response_" + documentid.toString())
+              // .doc("Test")
               .set({'numofanimals': dropdownValue}, SetOptions(merge: true));
         });
       },
-      items: <String>[
-        'Select Here',
-        '1',
-        '2',
-        '3',
-        '4+'
-      ].map<DropdownMenuItem<String>>((String value) {
+      items: <String>['Select Here', '1', '2', '3', '4+']
+          .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
         );
       }).toList(),
     );
+  }
+}
+
+class MyImagePicker extends StatefulWidget {
+  MyImagePicker({Key key, this.title}) : super(key: key);
+  final String title;
+
+  @override
+  _MyImagePickerState createState() => _MyImagePickerState();
+}
+
+class _MyImagePickerState extends State<MyImagePicker> {
+  PickedFile _imageFile;
+  final String uploadUrl = 'http://041d-163-120-35-224.ngrok.io/image';
+  final ImagePicker _picker = ImagePicker();
+
+  Future<String> uploadImage(filepath, url) async {
+    var request = http.MultipartRequest('POST', Uri.parse(url));
+    request.files.add(await http.MultipartFile.fromPath('image', filepath));
+    var res = await request.send();
+    return res.reasonPhrase;
+  }
+
+  Future<void> retriveLostData() async {
+    final LostData response = await _picker.getLostData();
+    if (response.isEmpty) {
+      return;
+    }
+    if (response.file != null) {
+      setState(() {
+        _imageFile = response.file;
+      });
+    } else {
+      print('Retrieve error ' + response.exception.code);
+    }
+  }
+
+  Widget _previewImage() {
+    if (_imageFile != null) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            // Image.file(File(_imageFile.path)),
+            SizedBox(
+              height: 20,
+            ),
+            RaisedButton(
+              onPressed: () async {
+                var res = await uploadImage(_imageFile.path, uploadUrl);
+                print(res);
+              },
+              child: const Text('Upload'),
+            )
+          ],
+        ),
+      );
+    } else {
+      return const Text(
+        'You have not yet picked an image.',
+        textAlign: TextAlign.center,
+      );
+    }
+  }
+
+  void _pickImage() async {
+    try {
+      final pickedFile = await _picker.getImage(source: ImageSource.gallery);
+      setState(() {
+        _imageFile = pickedFile;
+      });
+    } catch (e) {
+      print("Image picker error " + e);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+    children: <Widget>[
+    Center(
+          child: FutureBuilder<void>(
+        future: retriveLostData(),
+        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+              return const Text('Picked an image');
+            case ConnectionState.done:
+              return _previewImage();
+            default:
+              return const Text('Picked an image');
+          }
+        // },
+        })),
+    MaterialButton(
+      onPressed: _pickImage,
+      child: Icon(Icons.photo_library),
+    )
+    ]);
+
+    //   )),
+    //   floatingActionButton: FloatingActionButton(
+    //     onPressed: _pickImage,
+    //     tooltip: 'Pick Image from gallery',
+    //     child: Icon(Icons.photo_library),
+    //   ), // This trailing comma makes auto-formatting nicer for build methods.
+    // );
   }
 }

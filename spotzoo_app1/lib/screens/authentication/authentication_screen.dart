@@ -70,13 +70,13 @@ class _AuthScreenState extends State<AuthScreen> {
     final guestLoginButton = Material(
         textStyle: style,
         elevation: 5.0,
-        borderRadius: BorderRadius.circular(30.0),
-        color: Colors.white,
+        borderRadius: BorderRadius.circular(15.0),
+        color: const Color(0xFFa1e2e7),
         child: MaterialButton(
             minWidth: MediaQuery.of(context).size.width,
             padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
             child: Text(
-              "Sign In (As Guest)",
+              "Guest Sign In",
               textAlign: TextAlign.center,
               style: style,
             ),
@@ -88,23 +88,23 @@ class _AuthScreenState extends State<AuthScreen> {
 
     final loginButton = Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Colors.blue,
+      borderRadius: BorderRadius.circular(15.0),
+      color: const Color(0xFFa1e2e7),
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
         onPressed: createNewLoginTemplate,
         child: Text("Sign In",
             textAlign: TextAlign.center,
-            style: TextStyle(fontFamily: 'Montserrat', fontSize: 20.0, color: Colors.white),
+            style: TextStyle(fontFamily: 'Montserrat', fontSize: 20.0, color: Colors.black),
             ),
       ),
     );
 
     final signupButton = Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Colors.white,
+      borderRadius: BorderRadius.circular(15.0),
+      color: const Color(0xFFa1e2e7),
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(30.0, 15.0, 30.0, 15.0),
@@ -118,7 +118,7 @@ class _AuthScreenState extends State<AuthScreen> {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/giraffe.jpg"), 
+                image: AssetImage("assets/images/spotzoo_screen.png"), 
                 fit: BoxFit.cover)),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -142,13 +142,25 @@ class _AuthScreenState extends State<AuthScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
+                                Spacer(flex: 1),
                                 Text(
                                   "SpotZoo",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 40,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                      color: Colors.black),
                                 ),
                                 Spacer(flex: 1),
                                 Spacer(flex: 1),

@@ -39,6 +39,7 @@ dependencies:
   firebase_core_web: #avoids (benign) error for plugin, not neccesary
   cloud_firestore_web: #avoids (benign) error for plugin, not neccesary
   firebase_auth_web:
+  image_picker: ^0.6.7+11
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -63,9 +64,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/snowplow_main_screen.jpg
     - assets/images/giraffe.jpg
-  #   - images/a_dot_ham.jpeg
+    - assets/images/spotzoo_screen.png
+    - assets/images/spotzoo_second.png
+    - assets/images/main_hip.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

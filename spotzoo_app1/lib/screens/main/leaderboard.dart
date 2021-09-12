@@ -22,7 +22,8 @@ class _LeaderboardState extends State<Leaderboard> {
     double screenHeight = MediaQuery.of(context).size.height;
     double pixelTwoWidth = 411.42857142857144;
     double pixelTwoHeight = 683.4285714285714;
-
+    int reportedanimals = 6;
+    int reportedanimals1 = 1;
     return Center(
         child: Column(
       children: <Widget>[
@@ -45,14 +46,29 @@ class _LeaderboardState extends State<Leaderboard> {
               children: <Widget>[
                 Card(
                     child: ListTile(
-                  leading: Icon(Icons.leaderboard, color: Colors.blue),
-                  title: Text('Coming Soon...',
+                  leading: Icon(Icons.person, color: Colors.blue),
+                  title: Text('Adi Kulkarni',
                       textAlign: TextAlign.left,
                       style: new TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20 * screenWidth / pixelTwoWidth)),
                   subtitle: Text(
-                    'Development in progress',
+                    'Animals Reported: '+ reportedanimals.toString(),
+                    style:
+                        TextStyle(fontSize: 16 * screenWidth / pixelTwoWidth),
+                  ),
+                  onTap: () => {},
+                )),
+                Card(
+                    child: ListTile(
+                  leading: Icon(Icons.group, color: Colors.blue),
+                  title: Text('Guest Account',
+                      textAlign: TextAlign.left,
+                      style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20 * screenWidth / pixelTwoWidth)),
+                  subtitle: Text(
+                    'Animals Reported: '+ reportedanimals1.toString(),
                     style:
                         TextStyle(fontSize: 16 * screenWidth / pixelTwoWidth),
                   ),

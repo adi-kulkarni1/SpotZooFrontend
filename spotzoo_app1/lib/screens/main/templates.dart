@@ -167,6 +167,10 @@ class _LoginTemplateState extends State<LoginTemplate> {
     return Stack(
       children: <Widget>[
         Container(
+          decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: const Color(0xFFE3EEEF),
+          ),
           width: screenWidth * 0.8,
           child: Column(
             children: <Widget>[
@@ -177,7 +181,8 @@ class _LoginTemplateState extends State<LoginTemplate> {
                   child: Text(
                     "Login",
                     style: new TextStyle(
-                      fontFamily: 'Lato',
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold,
                       fontSize: 32 * screenWidth / pixelTwoWidth,
                     ),
                   ),
@@ -197,7 +202,7 @@ class _LoginTemplateState extends State<LoginTemplate> {
                           keyboardType: TextInputType.emailAddress,
                           controller: _email,
                           style: TextStyle(
-                              fontFamily: 'Lato',
+                              fontFamily: 'Montserrat',
                               fontSize: 18 * screenWidth / pixelTwoWidth),
                           validator: (val) {
                             if (val != "") {
@@ -231,7 +236,7 @@ class _LoginTemplateState extends State<LoginTemplate> {
                       child: TextFormField(
                         controller: _password,
                         style: TextStyle(
-                            fontFamily: 'Lato',
+                            fontFamily: 'Montserrat',
                             fontSize: 18 * screenWidth / pixelTwoWidth),
                         validator: (val) /* check whether the form is valid */ {
                           if (val == "") {
@@ -262,12 +267,12 @@ class _LoginTemplateState extends State<LoginTemplate> {
                         child: !_desiresAutoLogin
                             ? Text("Enable Auto-Login",
                                 style: TextStyle(
-                                    fontFamily: 'Lato',
+                                    fontFamily: 'Montserrat',
                                     color: Colors.blue[600],
                                     fontSize: 18 * screenWidth / pixelTwoWidth))
                             : Text("Disable Auto-Login",
                                 style: TextStyle(
-                                    fontFamily: 'Lato',
+                                    fontFamily: 'Montserrat',
                                     color: Colors.blue,
                                     fontSize:
                                         18 * screenWidth / pixelTwoWidth)),
@@ -291,7 +296,7 @@ class _LoginTemplateState extends State<LoginTemplate> {
                                 "Login",
                                 style: new TextStyle(
                                     fontSize: 20 * screenWidth / pixelTwoWidth,
-                                    fontFamily: 'Lato'),
+                                    fontFamily: 'Montserrat'),
                               ),
                             ),
                             onPressed: () => tryToLogin(),
@@ -499,6 +504,10 @@ class _RegisterTemplateState extends State<RegisterTemplate> {
     return Stack(
       children: <Widget>[
         Container(
+          decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: const Color(0xFFE3EEEF),
+          ),
           width: screenWidth * 0.8,
           child: Column(
             children: <Widget>[
@@ -507,7 +516,8 @@ class _RegisterTemplateState extends State<RegisterTemplate> {
                 child: Container(
                     child: Text("Register",
                         style: TextStyle(
-                            fontFamily: 'Lato',
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
                             fontSize: 32 * screenWidth / pixelTwoWidth))),
               ),
               new Form(
@@ -521,7 +531,7 @@ class _RegisterTemplateState extends State<RegisterTemplate> {
                           child: TextFormField(
                             controller: _firstName,
                             style: new TextStyle(
-                                fontFamily: 'Lato',
+                                fontFamily: 'Montserrat',
                                 fontSize: 18 * screenWidth / pixelTwoWidth),
                             textAlign: TextAlign.center,
                             decoration:
@@ -543,7 +553,7 @@ class _RegisterTemplateState extends State<RegisterTemplate> {
                         child: TextFormField(
                           controller: _lastName,
                           style: new TextStyle(
-                              fontFamily: 'Lato',
+                              fontFamily: 'Montserrat',
                               fontSize: 18 * screenWidth / pixelTwoWidth),
                           textAlign: TextAlign.center,
                           decoration: new InputDecoration(
@@ -565,7 +575,7 @@ class _RegisterTemplateState extends State<RegisterTemplate> {
                           controller: _email,
                           keyboardType: TextInputType.emailAddress,
                           style: new TextStyle(
-                              fontFamily: 'Lato',
+                              fontFamily: 'Montserrat',
                               fontSize: 18 * screenWidth / pixelTwoWidth),
                           validator: (val) {
                             if (val == "") {
@@ -596,7 +606,7 @@ class _RegisterTemplateState extends State<RegisterTemplate> {
                         child: TextFormField(
                           controller: _password,
                           style: new TextStyle(
-                              fontFamily: 'Lato',
+                              fontFamily: 'Montserrat',
                               fontSize: 18 * screenWidth / pixelTwoWidth),
                           validator: (val) {
                             //validate password
@@ -638,7 +648,7 @@ class _RegisterTemplateState extends State<RegisterTemplate> {
                                   style: new TextStyle(
                                       fontSize:
                                           20 * screenWidth / pixelTwoWidth,
-                                      fontFamily: 'Lato'),
+                                      fontFamily: 'Montserrat'),
                                 ),
                               ),
                               onPressed: () => tryToRegister(),
@@ -744,7 +754,7 @@ class _SettingsTemplateState extends State<SettingsTemplate> {
             "Reset Password",
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontFamily: 'Lato', fontSize: 20, color: Colors.white),
+                fontFamily: 'Montserrat', fontSize: 20, color: Colors.white),
           ),
         ));
 
@@ -762,7 +772,7 @@ class _SettingsTemplateState extends State<SettingsTemplate> {
             "Submit Request",
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontFamily: 'Lato', fontSize: 20, color: Colors.white),
+                fontFamily: 'Montserrat', fontSize: 20, color: Colors.white),
           ),
         ));
 
@@ -779,7 +789,7 @@ class _SettingsTemplateState extends State<SettingsTemplate> {
                 child: Text(
                   "Settings",
                   style: new TextStyle(
-                    fontFamily: 'Lato',
+                    fontFamily: 'Montserrat',
                     fontSize: 32 * screenWidth / pixelTwoWidth,
                   ),
                 ),
@@ -827,7 +837,7 @@ class _SettingsFieldState extends State<SettingsField> {
           controller: widget.controller,
           decoration: InputDecoration(
             labelText: widget.label,
-            labelStyle: TextStyle(fontFamily: 'Lato', fontSize: 18),
+            labelStyle: TextStyle(fontFamily: 'Montserrat', fontSize: 18),
           ),
         ));
   }

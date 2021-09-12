@@ -7,7 +7,6 @@ class AlertNotif extends StatefulWidget {
 }
 
 class _AlertNotifState extends State<AlertNotif> {
-
   @override
   void initState() {
     super.initState();
@@ -45,14 +44,86 @@ class _AlertNotifState extends State<AlertNotif> {
               children: <Widget>[
                 Card(
                     child: ListTile(
-                  leading: Icon(Icons.leaderboard, color: Colors.blue),
-                  title: Text('Coming Soon...',
+                  leading: Icon(Icons.warning, color: Colors.red),
+                  title: Text('Lion: High Risk',
                       textAlign: TextAlign.left,
                       style: new TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20 * screenWidth / pixelTwoWidth)),
                   subtitle: Text(
-                    'Development in progress',
+                    'Spotted 3 hours ago',
+                    style:
+                        TextStyle(fontSize: 16 * screenWidth / pixelTwoWidth),
+                  ),
+                  onTap: () => {},
+                )),
+                Card(
+                    child: ListTile(
+                  leading: Icon(Icons.warning, color: Colors.red),
+                  title: Text('Crocodile: High Risk',
+                      textAlign: TextAlign.left,
+                      style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20 * screenWidth / pixelTwoWidth)),
+                  subtitle: Text(
+                    'Spotted 4 hours ago',
+                    style:
+                        TextStyle(fontSize: 16 * screenWidth / pixelTwoWidth),
+                  ),
+                  onTap: () => {},
+                )),
+                Card(
+                    child: ListTile(
+                  leading: Icon(Icons.warning, color: Colors.yellow),
+                  title: Text('Monkey: Medium Risk',
+                      textAlign: TextAlign.left,
+                      style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20 * screenWidth / pixelTwoWidth)),
+                  subtitle: Text(
+                    'Spotted 5 hours ago',
+                    style:
+                        TextStyle(fontSize: 16 * screenWidth / pixelTwoWidth),
+                  ),
+                  onTap: () => {},
+                )),
+                Card(
+                    child: ListTile(
+                  leading: Icon(Icons.warning, color: Colors.green),
+                  title: Text('Cat: Low Risk',
+                      textAlign: TextAlign.left,
+                      style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20 * screenWidth / pixelTwoWidth)),
+                  subtitle: Text(
+                    'Spotted 2 hours ago',
+                    style:
+                        TextStyle(fontSize: 16 * screenWidth / pixelTwoWidth),
+                  ),
+                  onTap: () => {},
+                )),
+                Container(
+                  padding: new EdgeInsets.fromLTRB(screenWidth / 20,
+                      screenHeight / 40, screenWidth / 20, screenHeight / 80),
+                  width: double.infinity,
+                  child: Text(
+                    "Past Alerts in Your Area",
+                    textAlign: TextAlign.center,
+                    style: new TextStyle(
+                        fontSize: 26 * screenWidth / pixelTwoWidth,
+                        fontFamily: 'Lato-Regular'),
+                  ),
+                ),
+                Card(
+                    child: ListTile(
+                  leading: Icon(Icons.warning, color: Colors.green),
+                  title: Text('Sheep: Low Risk',
+                      textAlign: TextAlign.left,
+                      style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20 * screenWidth / pixelTwoWidth)),
+                  subtitle: Text(
+                    'Spotted 24 hours ago',
                     style:
                         TextStyle(fontSize: 16 * screenWidth / pixelTwoWidth),
                   ),

@@ -76,9 +76,9 @@ class _HomeUIState extends State<HomeUI> {
             position: LatLng(value.get("latitude_of_location"),
                 value.get("longitude_of_location")),
             infoWindow: InfoWindow(
-                title: value.get("animal")+" ("+value.get("numofanimals")+")", snippet: value.get("date")),
+                title: value.get("animal")+" ("+value.get("numofanimals")+")", snippet: value.get("date") + ", ML Confid: "+ value.get("score")),
             icon: BitmapDescriptor.defaultMarkerWithHue(
-                (("bird"==(value.get("animal"))) | ("cat"==(value.get("animal")))) ? BitmapDescriptor.hueGreen: (("elephant"==(value.get("animal"))) | ("monkey"==(value.get("animal")))) ? BitmapDescriptor.hueYellow  : BitmapDescriptor.hueRed
+                (("bird"==(value.get("animal"))) | ("cat"==(value.get("animal"))) | ("butterfly"==(value.get("animal"))) | ("person"==(value.get("animal")))) ? BitmapDescriptor.hueGreen: (("elephant"==(value.get("animal"))) | ("zebra"==(value.get("animal"))) | ("giraffe"==(value.get("animal"))) | ("monkey"==(value.get("animal")))) ? BitmapDescriptor.hueYellow  : BitmapDescriptor.hueRed
                 ), //Dont change format of this
             onTap: () {
               //what to do when marker is tapped
@@ -101,7 +101,7 @@ class _HomeUIState extends State<HomeUI> {
     final reportButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(15.0),
-      color: Colors.white,
+      color: const Color(0xFFa1e2e7),
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
         onPressed: () {
@@ -121,7 +121,7 @@ class _HomeUIState extends State<HomeUI> {
     final legendButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(15.0),
-      color: Colors.white,
+      color: const Color(0xFFa1e2e7),
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
         onPressed: () {
@@ -138,7 +138,7 @@ class _HomeUIState extends State<HomeUI> {
     final loadMarkersButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(15.0),
-      color: Colors.white,
+      color: const Color(0xFFa1e2e7),
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
         onPressed: () {
@@ -160,7 +160,7 @@ class _HomeUIState extends State<HomeUI> {
         child: Container(
             width: screenWidth,
             decoration: BoxDecoration(
-              color: Colors.brown[400],
+              color: Colors.white,
             ),
             child: Stack(children: <Widget>[
               Column(

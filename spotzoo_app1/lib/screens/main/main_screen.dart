@@ -50,11 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
         return HomeUI();
       case 1:
         return AlertNotif();
+        break;
       case 2:
         return Leaderboard();
-        break;
-      case 3:
-        return AboutUs();
     }
   }
 
@@ -213,7 +211,6 @@ class _HomeScreenState extends State<HomeScreen> {
           Icon(FlutterIcons.alert_triangle_fea,
               size: 30), //top left/right to change alert radius
           Icon(Icons.group, size: 30), //leaderboard
-          Icon(Icons.info, size: 30), //info abt the app
         ],
         onTap: (index) {
           setState(() {
