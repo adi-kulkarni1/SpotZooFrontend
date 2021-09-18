@@ -104,13 +104,13 @@ class _FormScreenState extends State<FormScreen> {
       borderRadius: BorderRadius.circular(30.0),
       color: Colors.white,
       child: MaterialButton(
-        padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
+        padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
         onPressed: () {
           _getCurrentLocation();
           mapPut();
         },
         child: Text(
-          "Use Current Location (Drag Marker if Needed)",
+          "Set Current Location",
           textAlign: TextAlign.center,
           style: style,
         ),
@@ -188,12 +188,12 @@ class _FormScreenState extends State<FormScreen> {
                         Padding(
                           padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
                           child: Text(
-                            "What time was this observation made at?",
+                            "Time animal was spotted?",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 23,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Colors.black),
                           ),
                         ),
                         new DateTimeForm(
@@ -212,7 +212,7 @@ class _FormScreenState extends State<FormScreen> {
                                     style: TextStyle(
                                         fontSize: 23,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color: Colors.black),
                                   ),
                                 ),
                               ),
@@ -238,7 +238,7 @@ class _FormScreenState extends State<FormScreen> {
                               style: TextStyle(
                                   fontSize: 23,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.black),
                             ),
                           ),
                         ),
@@ -262,12 +262,12 @@ class _FormScreenState extends State<FormScreen> {
                           child: Align(
                             alignment: Alignment.center,
                             child: Text(
-                              "Click below to take a picture/video of animal",
+                              "Upload Media Below",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 23,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.black),
                             ),
                           ),
                         ),
@@ -293,12 +293,12 @@ class _FormScreenState extends State<FormScreen> {
                               style: TextStyle(
                                   fontSize: 23,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.black),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(7.0, 10.0, 7.0, 0.0),
+                          padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 0.0),
                           child: Container(
                               child: new TextFormField(
                                 controller: _commentController,
