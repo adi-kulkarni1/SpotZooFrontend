@@ -1,4 +1,4 @@
-# PennAppsXXII at the University of Pennsylvania
+# SpotZoo Project: PennAppsXXII at the University of Pennsylvania
 - Top 9 Project Overall
 - Won Sponsored Route for Best Use of IPFS and/or Filecoin
 
