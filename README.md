@@ -71,3 +71,4 @@ A lot of things, both summed up in technical & non-technical sides. Also not to 
 We just really want this project to be a real app and have an impact! Still, we would love to make it more scalable & cross-platform so that the user interaction increases & we can help minimize unexpected animal attacks.
 
 #### Check out this [doc](https://docs.google.com/document/d/1fc9_9zpepgL_NWGGUn5luJ0TSj33h51x6V4yGZpDbqQ/edit#) for more info!
+For related code part of this project, check out [this github repo](https://github.com/sjunhong/PennAppsXXII-SpotZoo/tree/main/app)
